@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #e2e9ef;
+    }
+
+    .container {
+      max-width: 100-px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 100 2px 6px rgba(18, 3, 16, 0.1);
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: 1000;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .form-inline {
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .form-control {
+      width: 70%;
+    }
+    
+    .btn {
+      width: 10%;
+    }
+
+    .table {
+
+      margin-bottom: 50px;
+    }
+
+    .submit-button {
+  background-color: none;
+  color: white;
+  width: 20%;
+  padding: none;
+  border: none;
+  margin-left: 10;
+}
+
+.search-button{
+  background-color:none;
+  color: white;
+  width: 35%;
+  padding: 5px 5px;
+  border: none;
+}
+   
+
+    .delete-button {
+  background-color: red;
+  color: white;
+  width: 80%;
+  padding: 5px 10px;
+  border: none;
+}
+
+</style>
+<title>URL Shrinker</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>URL Shrinker</h1>
+         <form  action="/" method="GET" class="form-inline">
+          <div class="input-group">
+             <input type="text" name="q" placeholder="Search URLs" class="form-control mr-2 input-box">
+             <button class="btn btn-secondary search-button" type="submit">Search</button>
+          </div>
+         </form>
+    <form action="/shortUrls" method="POST" class="form-inline">
+      <div class="input-group">
+      <label for="fullUrl" class="sr-only">URL</label>
+      <input required placeholder="Enter URL" type="url" name="fullUrl" id="fullUrl" class="form-control mr-2">
+      <input type="text" name="note" class="form-control mr-2" placeholder="Add a note (Optional)">
+      <button class="btn btn-success submit-button form-inline" type="submit">Shrink</button>
+    </div>
+    </form>
+
+    <% if (errorMessage) { %> <!-- Update variable name to errorMessage -->
+      <div class="alert alert-danger text-center">
+        <%= errorMessage %> <!-- Update variable name to errorMessage -->
+      </div>
+    <% } %>
+    
+
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-2">Full URL</th>
+          <th class="col-2">Short URL</th>
+          <th class="col-2">Clicks</th>
+          <th class="col-2">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+  <% shortUrls.forEach(shortUrl => { %>
+  <tr>
+    <td class="col-2"><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+    <td class="col-2"><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+    <td class="col-2"><%= shortUrl.clicks %></td>
+    <td class="col-2"><%= shortUrl.note %></td>
+    <td class="col-2">
+        <form action="/shortUrls/<%= shortUrl._id %>/delete" method="POST">   
+        <button class="btn" type="submit">
+          <span style="color: red;">&#10060;</span></button>
+      </form>
+    </td>
+  </tr>
+  <% }) %>
+</tbody>
+
+    </table>
+    </div>
+  </div>
+</body>
+
+</html>
