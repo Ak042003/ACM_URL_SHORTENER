@@ -74,7 +74,7 @@ app.get('/:shortUrl', async (req, res) => {
   res.redirect(shortUrl.full)
 });
 
-app.post('/shortUrls/:id/delete', async (req, res) => {
+/*app.post('/shortUrls/:id/delete', async (req, res) => {
   try {
     const shortUrl = await ShortUrl.findByIdAndDelete(req.params.id);
     if (!shortUrl) {
@@ -87,7 +87,7 @@ app.post('/shortUrls/:id/delete', async (req, res) => {
     console.log(error);
     res.status(500).send('Internal Server Error');
   }
-});
+});*/
 
 
 
