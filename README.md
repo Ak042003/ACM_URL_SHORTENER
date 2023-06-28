@@ -4,11 +4,11 @@ URL Shrinker is a lightweight and easy-to-use URL shortening service built using
 
 Key Features:
 
-Shorten long URLs to concise and shareable links.
-Track the number of clicks on each shortened URL.
-Add optional notes to provide additional information about the URLs.
-Search functionality to easily find specific URLs.
-User-friendly web interface for managing and accessing shortened links.
+1) Shorten long URLs to concise and shareable links.
+2) Track the number of clicks on each shortened URL.
+3) Add optional notes to provide additional information about the URLs.
+4) Search functionality to easily find specific URLs.
+5) User-friendly web interface for managing and accessing shortened links.
 
 Installation:
 
