@@ -1,6 +1,4 @@
-# ACM_URL_SHORTENER
-
-🌐 ACM_URL_SHORTENER: Simplify Your Links, Amplify Your Reach! 🚀
+# 🌐 ACM_URL_SHORTENER: Simplify Your Links, Amplify Your Reach! 🚀
 
 URL Shrinker is your lightweight, efficient, and user-friendly solution for URL shortening. Built with the power of Express.js and MongoDB, this service takes the hassle out of managing long, unwieldy URLs. Whether you’re looking to shrink links for seamless sharing, track click performance, or organize your links with custom notes, URL Shrinker has got you covered.
 
